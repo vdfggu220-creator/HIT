@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Developer portfolio showcasing bots, mods, websites, and software projects." />
+  <title>HIT — Developer Portfolio</title>
+  <style>
+:root {
+  --bg: #09090b;
+  --panel: #111114;
+  --panel-2: #17171b;
+  --text: #f4f4f5;
+  --muted: #a1a1aa;
+  --line: #27272a;
+  --accent: #ffffff;
+  --max: 1120px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255,255,255,.06), transparent 32%),
+    var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: min(calc(100% - 32px), var(--max));
+  margin: 16px auto 0;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(12,12,15,.74);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  backdrop-filter: blur(18px);
+}
+
+.logo {
+  font-weight: 900;
+  letter-spacing: -.04em;
+}
+
+.nav nav {
+  display: flex;
+  gap: 20px;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+.nav nav a:hover {
+  color: var(--text);
+}
+
+main {
+  width: min(calc(100% - 32px), var(--max));
+  margin: 0 auto;
+}
+
+.hero {
+  min-height: 78vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 850px;
+  padding: 90px 0 70px;
+}
+
+.eyebrow {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .78rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+h1 {
+  font-size: clamp(3.1rem, 9vw, 7.5rem);
+  line-height: .93;
+  letter-spacing: -.065em;
+  max-width: 950px;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.hero-copy {
+  margin-top: 28px;
+  max-width: 680px;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.btn {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: .2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: #52525b;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #09090b;
+  border-color: var(--accent);
+}
+
+.section {
+  padding: 85px 0;
+  border-top: 1px solid var(--line);
+}
+
+.section-heading {
+  margin-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card {
+  min-height: 260px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  transition: transform .2s ease, border-color .2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #52525b;
+}
+
+.card h3 {
+  font-size: 1.6rem;
+  margin: 16px 0 10px;
+}
+
+.card p {
+  color: var(--muted);
+  max-width: 48ch;
+}
+
+.tag {
+  display: inline-block;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 10px;
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+.links {
+  display: flex;
+  gap: 14px;
+  margin-top: 24px;
+  font-weight: 700;
+}
+
+.links a {
+  color: #d4d4d8;
+}
+
+.links a:hover {
+  color: #fff;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.about-copy {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.contact {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact p:not(.eyebrow) {
+  color: var(--muted);
+  margin-top: 14px;
+}
+
+footer {
+  width: min(calc(100% - 32px), var(--max));
+  margin: 0 auto;
+  padding: 26px 0 40px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: .9rem;
+}
+
+@media (max-width: 760px) {
+  .nav nav {
+    gap: 12px;
+    font-size: .85rem;
+  }
+
+  .grid,
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: 68vh;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+}
+
+</style>
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="#home">HIT</a>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <p class="eyebrow">Developer • Minecraft • Bots • Web</p>
+      <h1>I build things people actually use.</h1>
+      <p class="hero-copy">
+        Custom Discord bots, Minecraft mods, tierlist systems, websites, APIs and automation.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn" href="#contact">Contact Me</a>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Selected work</p>
+        <h2>Projects</h2>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <span class="tag">Minecraft Mod</span>
+          <h3>TierTagger</h3>
+          <p>
+            Custom client-side tier display mod with live tier data, player detection,
+            custom UI, branding and server API integration.
+          </p>
+          <div class="links">
+            <a href="#" target="_blank" rel="noreferrer">Demo</a>
+            <a href="#" target="_blank" rel="noreferrer">Details</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="tag">Discord + Web</span>
+          <h3>Raino Tierlist</h3>
+          <p>
+            Tierlist bot, queue system, testing tickets, results, registration,
+            live website and custom management tools.
+          </p>
+          <div class="links">
+            <a href="#" target="_blank" rel="noreferrer">Website</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="tag">Web App</span>
+          <h3>NeoDrop</h3>
+          <p>
+            Flask-based file sharing platform with drag-and-drop uploads,
+            QR sharing and realtime features.
+          </p>
+          <div class="links">
+            <a href="#" target="_blank" rel="noreferrer">Project</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="tag">Discord Bot</span>
+          <h3>Management Bot</h3>
+          <p>
+            Applications, support tickets, staff tools, cooldown controls,
+            autoroles, welcome system and moderation utilities.
+          </p>
+          <div class="links">
+            <a href="#" target="_blank" rel="noreferrer">Details</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section split">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2>Fast builds. Clean systems.</h2>
+      </div>
+      <p class="about-copy">
+        I work on Minecraft tooling, Discord automation, websites and custom software.
+        I focus on practical features, clean UI and making systems easy for clients to use.
+      </p>
+    </section>
+
+    <section id="contact" class="section contact">
+      <p class="eyebrow">Work with me</p>
+      <h2>Need something custom?</h2>
+      <p>Message me on Discord or check out my GitHub.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="https://discord.com/" target="_blank" rel="noreferrer">Discord</a>
+        <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> HIT</span>
+    <span>Built with HTML, CSS & JavaScript.</span>
+  </footer>
+
+  <script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const cards = document.querySelectorAll(".card");
+
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.animate(
+          [
+            { opacity: 0, transform: "translateY(18px)" },
+            { opacity: 1, transform: "translateY(0)" }
+          ],
+          { duration: 500, easing: "ease-out", fill: "both" }
+        );
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+cards.forEach(card => observer.observe(card));
+
+</script>
+</body>
+</html>
